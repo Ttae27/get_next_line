@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:07:18 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/10 10:12:05 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/12 14:45:49 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 #include <stdlib.h>
 #include <unistd.h>
-#include <sys/types>
+#include <sys/types.h>
 #include <sys/uio.h>
 
+char	*ft_strjoin(char *s1, char *s2);
+size_t	ft_strlen(char *str);
 #endif
