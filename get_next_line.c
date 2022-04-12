@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:06:02 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/12 14:53:48 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:13:13 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*get_next_line(int fd)
 	if (!buf)
 		return (NULL);
 	rd = 1;
-	while (rd != 0)
+	while (!ft_strchr(left_str, '\n') && rd != 0)
 	{
 		rd = read(fd, buf, BUFFER_SIZE);
 		if (rd < 0)
@@ -39,7 +39,8 @@ char	*get_next_line(int fd)
 		left_str = ft_strjoin(left_str, buf);
 	}
 	free(buf);
-	return (left_str);
+	line = get_line(left_str);
+	return (line);
 }
 #include <stdio.h>
 #include <fcntl.h>
