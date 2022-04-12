@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:06:02 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/12 17:13:13 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/12 22:34:24 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@ char	*get_next_line(int fd)
 {
 	char		*line;
 	static char	*left_str;
-	int		i;
 	int		rd;
 	char		*buf;
 
-	i = 0;
 	if (fd < 0 || BUFFER_SIZE < 0)
 		return (NULL);
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
@@ -49,9 +47,29 @@ int	main()
 {
 	int	fd;
 	char	*line;
+	int	fd2;
+	int	fd3;
+	int	i;
 
-	fd = open ("lol", O_RDONLY);
-	line = get_next_line(fd);
-	printf("%s",line);
-	free(line);
+	fd = open("test/test.txt", O_RDONLY);
+	fd2 = open("test/test2.txt", O_RDONLY);
+	fd3 = open("test/test3.txt", O_RDONLY);
+	i = 1;
+	while (i < 3)
+	{
+		line = get_next_line(fd);
+		printf("line [%02d] : %s", i, line);
+		free(line);
+		line = get_next_line(fd2);
+		printf("line [%02d] : %s", i, line);
+		free(line);
+		line = get_next_line(fd3);
+		printf("line [%02d] : %s", i, line);
+		free(line);
+		i++;
+	}
+	close(fd);
+	close(fd2);
+	close(fd3);
+	return (0);
 }

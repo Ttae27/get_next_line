@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:06:51 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/12 17:10:21 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/12 18:47:13 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,12 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (!out)
 		return (NULL);
 	while (s1[j])
-	{
-		out[i] = s1[j];
-		i++;
-		j++;
-	}
+		out[i++] = s1[j++];
 	j = 0;
 	while (s2[j])
-	{
-		out[i] = s2[j];
-		i++;
-		j++;
-	}
+		out[i++] = s2[j++];
 	out[i] = '\0';
+	free(s1);
 	return (out);
 }
 
