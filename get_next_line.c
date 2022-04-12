@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:06:02 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/12 22:34:24 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/12 23:55:59 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ char	*get_next_line(int fd)
 	}
 	free(buf);
 	line = get_line(left_str);
+	left_str = next_left_str(left_str);
 	return (line);
 }
 #include <stdio.h>

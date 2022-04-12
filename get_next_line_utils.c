@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:06:51 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/12 18:47:13 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/12 23:55:01 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,27 @@ char	*get_line(char *str)
 	tmp[i] = '\0';
 	free(str);
 	return (tmp);
+}
+
+char	*next_left_str(char *str)
+{
+	int		i;
+	int		j;
+	char	*next;
+
+	i = 0;
+	while (str[i] && str[i] != '\n')
+		i++;
+	next = (char *)malloc(sizeof(char) * (ft_strlen(&str[i]) + 1));
+	if (!next)
+		return (NULL);
+	j = 0;
+	i++;
+	while (str[i])
+		next[j++] = str[i++];
+	if (str[i] == '\n')
+		next[j++] = '\n';
+	next[j] = '\0';
+	free(str);
+	return (next);
 }
