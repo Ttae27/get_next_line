@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:06:02 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/12 23:55:59 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/13 21:45:09 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	main()
 	fd2 = open("test/test2.txt", O_RDONLY);
 	fd3 = open("test/test3.txt", O_RDONLY);
 	i = 1;
-	while (i < 3)
+	while (i < 5)
 	{
 		line = get_next_line(fd);
 		printf("line [%02d] : %s", i, line);

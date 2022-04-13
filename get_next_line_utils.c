@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:06:51 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/12 23:55:01 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/13 21:10:13 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,17 @@ char	*get_line(char *str)
 	tmp = (char *)malloc(sizeof(char) * (i + 2));
 	if (!tmp)
 		return (NULL);
+	i = 0;
 	while (str[i] && str[i] != '\n')
 	{
 		tmp[i] = str[i];
 		i++;
 	}
 	if (str[i] == '\n')
-		tmp[i++] = '\n';
+	{
+		tmp[i] = str[i];
+		i++;
+	}
 	tmp[i] = '\0';
 	free(str);
 	return (tmp);
