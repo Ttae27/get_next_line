@@ -6,12 +6,12 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:06:02 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/14 14:36:05 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/14 17:11:14 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
+#include <stdio.h>
 char	*get_next_line(int fd)
 {
 	char		*line;
@@ -25,7 +25,7 @@ char	*get_next_line(int fd)
 	if (!buf)
 		return (NULL);
 	rd = 1;
-	while (!ft_strchr(left_str, '\n') && rd != 0)
+	while (rd != 0)
 	{
 		rd = read(fd, buf, BUFFER_SIZE);
 		if (rd < 0)
@@ -34,6 +34,7 @@ char	*get_next_line(int fd)
 			return (NULL);
 		}
 		buf[rd] = '\0';
+		//printf("rd = %d\n",rd);
 		left_str = ft_strjoin(left_str, buf);
 	}
 	free(buf);
@@ -41,7 +42,7 @@ char	*get_next_line(int fd)
 	left_str = next_left_str(left_str);
 	return (line);
 }
-#include <stdio.h>
+/*#include <stdio.h>
 #include <fcntl.h>
 
 int	main()
@@ -73,4 +74,4 @@ int	main()
 	//close(fd2);
 	//close(fd3);
 	return (0);
-}
+}*/
