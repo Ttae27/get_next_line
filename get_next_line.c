@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:06:02 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/13 21:45:09 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/14 14:36:05 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,29 +48,29 @@ int	main()
 {
 	int	fd;
 	char	*line;
-	int	fd2;
-	int	fd3;
+//	int	fd2;
+//	int	fd3;
 	int	i;
 
-	fd = open("test/test.txt", O_RDONLY);
-	fd2 = open("test/test2.txt", O_RDONLY);
-	fd3 = open("test/test3.txt", O_RDONLY);
+	fd = open("test1", O_RDONLY);
+	//fd2 = open("test/test2.txt", O_RDONLY);
+	//fd3 = open("test/test3.txt", O_RDONLY);
 	i = 1;
 	while (i < 5)
 	{
 		line = get_next_line(fd);
 		printf("line [%02d] : %s", i, line);
 		free(line);
-		line = get_next_line(fd2);
-		printf("line [%02d] : %s", i, line);
-		free(line);
-		line = get_next_line(fd3);
-		printf("line [%02d] : %s", i, line);
-		free(line);
+		//line = get_next_line(fd2);
+		//printf("line [%02d] : %s", i, line);
+		//free(line);
+		//line = get_next_line(fd3);
+		//printf("line [%02d] : %s", i, line);
+		//free(line);
 		i++;
 	}
 	close(fd);
-	close(fd2);
-	close(fd3);
+	//close(fd2);
+	//close(fd3);
 	return (0);
 }

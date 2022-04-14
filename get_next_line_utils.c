@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:06:51 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/14 00:36:41 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/14 14:35:08 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,11 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s2[j])
 		out[i++] = s2[j++];
 	out[i] = '\0';
+	free(s1);
 	return (out);
 }
 
-char	*ft_strchr(char *s, int c)
+/*char	*ft_strchr(char *s, int c)
 {
 	int	i;
 
@@ -61,6 +62,23 @@ char	*ft_strchr(char *s, int c)
 	if (c == 0)
 		return ((char *)&s[i]);
 	return (NULL);
+}*/
+
+char	*ft_strchr(char *s, int c)
+{
+	int	i;
+	i = 0;
+	if (!s)
+		return (0);
+	if (c == '\0')
+		return ((char *)&s[ft_strlen(s)]);
+	while (s[i] != '\0')
+	{
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
+		i++;
+	}
+	return (0);
 }
 
 char	*get_line(char *str)

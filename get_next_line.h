@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:07:18 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/13 21:09:25 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/14 13:53:01 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <sys/types.h>
 #include <sys/uio.h>
 
+char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlen(char *str);
 char	*ft_strchr(char *s, int c);
