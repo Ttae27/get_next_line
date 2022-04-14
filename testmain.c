@@ -5,21 +5,43 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include "get_next_line.h"
+
+char	*read_to_left(int fd, char *left)
+{
+	char	*buf;
+	int	rd;
+
+	buf = (char *)malloc(sizeof(char) * BUFFER_SIZE  + 1);
+	if (!buf)
+		return (NULL);
+	rd = 1;
+	while (rd != 1)
+	{
+		rd = read(fd, buf, BUFFER_SIZE);
+		if (rd < 0)
+		{
+			free(buf);
+			return (NULL);
+		}
+		buf[rd] = '\0';
+		left = ft_strjoin(left, buf);
+		printf("left = %s\n", left);
+	}
+	free(buf);
+	return (left);
+}
+
 int	main()
 {
 	int	fd;
-	int	rd;
-	char	*buf;
-	char	*left;
+//	char	*line;
+	static char	*left;
 
-	fd = open("test1", O_RDONLY | O_CREAT);
-	rd = 1;
-	buf = malloc(sizeof(char) * BUFFER_SIZE + 1);
-	while (rd != 0 && !strchr(left, '\n'))
-	{
-		rd = read(fd, buf, BUFFER_SIZE);
-		buf[rd] = '\0';
-		printf("%s\n",buf);
-	}
-	close(fd);
+	fd = open("test1", O_RDONLY);
+	printf("fd = %d\n", fd);
+	if (fd == -1)
+		printf("fail");
+	left = read_to_left(fd, left);
+	printf("main left = %s", left);
 }
