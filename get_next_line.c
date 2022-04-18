@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:06:02 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/15 13:56:27 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/18 13:16:18 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,19 @@ char	*get_next_line(int fd)
 			return (NULL);
 		}
 		buf[rd] = '\0';
+		if (rd < BUFFER_SIZE)
+			break;
 		//printf("rd = %d\n",rd);
 		left_str = ft_strjoin(left_str, buf);
+		if (check_space(left_str))
+			break;
 	}
 	free(buf);
 	line = get_line(left_str);
 	left_str = next_left_str(left_str);
 	return (line);
 }
+
 #include <stdio.h>
 #include <fcntl.h>
 
@@ -57,7 +62,7 @@ int	main()
 	//fd2 = open("test/test2.txt", O_RDONLY);
 	//fd3 = open("test/test3.txt", O_RDONLY);
 	i = 1;
-	while (i < 5)
+	while (i < 7)
 	{
 		line = get_next_line(fd);
 		printf("line [%02d] : %s", i, line);

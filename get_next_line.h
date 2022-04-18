@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:07:18 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/14 13:53:01 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/18 13:17:08 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ size_t	ft_strlen(char *str);
 char	*ft_strchr(char *s, int c);
 char	*get_line(char *str);
 char	*next_left_str(char *str);
+int		check_space(char *left);
 #endif
