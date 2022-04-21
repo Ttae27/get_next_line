@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:06:51 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/20 18:43:02 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/21 12:20:28 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,12 @@ char	*next_left_str(char *str)
 	next = (char *)malloc(sizeof(char) * (ft_strlen(&str[i]) + 1));
 	if (!next)
 		return (NULL);
+	if (!ft_strlen(&str[i]))
+	{
+		free(str);
+		next[0] = '\0';
+		return (next);
+	}
 	j = 0;
 	i++;
 	while (str[i])

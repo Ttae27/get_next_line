@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:06:02 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/20 18:51:10 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/21 12:03:21 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ char	*get_next_line(int fd)
 		buf[rd] = '\0';
 		if (buf[0] == '\0')
 			break;
-		printf("rd = %d",rd);
+	//	printf("rd = %d",rd);
 		left_str = ft_strjoin(left_str, buf);
-		printf(" : left = %s\n", left_str);
-		printf("check_space = %d\n",check_space(left_str));
+	//	printf(" : left = %s\n", left_str);
+	//	printf("check_space = %d\n",check_space(left_str));
 		if (check_space(left_str) == 1 || rd < BUFFER_SIZE)
 			break;
 	}
