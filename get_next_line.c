@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:06:02 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/21 12:03:21 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/21 12:22:25 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-#include <stdio.h>
+/*#include <stdio.h>
 #include <fcntl.h>
 
 int	main()
@@ -81,4 +81,4 @@ int	main()
 	//close(fd2);
 	//close(fd3);
 	return (0);
-}
+}*/
