@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:06:51 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/22 18:19:51 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/22 18:29:55 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ char	*next_left_str(char *str)
 	if (!ft_strlen(&str[i]))
 	{
 		free(str);
+		next = '\0';
 		free(next);
 		return ("\0");
 	}
