@@ -1,23 +1,29 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   long.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/18 15:13:42 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/20 13:04:51 by phongpai         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-
 #include "get_next_line.h"
 #include <stdio.h>
+#include <fcntl.h>
 
 int		main()
 {
-	int		i;
+	int		fd;
+	int		rd;
+	char	buf[50];
 
-	i = check_space("let's\ngo");
-	printf("%d",i);
+	fd = open("test1",O_RDONLY);
+	if (fd < 0)
+	{
+		printf("Failed to open!!\n");
+		return (0);
+	}
+	rd = read(fd, buf, 2);
+	buf[rd] = '\0';
+	printf("%s\n", buf);
+	rd = read(fd, buf, 2);
+	buf[rd] = '\0';
+	printf("%s\n", buf);
+	rd = read(fd, buf, 2);
+	buf[rd] = '\0';
+	printf("%s\n", buf);
+	rd = read(fd, buf, 2);
+	buf[rd] = '\0';
+	printf("%s\n", buf);
 }
