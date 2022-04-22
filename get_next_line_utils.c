@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:06:51 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/22 18:29:55 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/22 18:31:44 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,11 @@ char	*next_left_str(char *str)
 	i = 0;
 	if (str == NULL)
 		return (NULL);
+	if (!ft_strlen(&str[i]))
+	{
+		free(str);
+		return ("\0");
+	}
 	while (str[i] && str[i] != '\n')
 		i++;
 	next = (char *)malloc(sizeof(char) * (ft_strlen(&str[i]) + 1));
@@ -107,8 +112,6 @@ char	*next_left_str(char *str)
 	if (!ft_strlen(&str[i]))
 	{
 		free(str);
-		next = '\0';
-		free(next);
 		return ("\0");
 	}
 	j = 0;
