@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:06:51 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/22 18:31:44 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/22 20:28:18 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,37 +90,32 @@ char	*get_line(char *str)
 	return (tmp);
 }
 
-char	*next_left_str(char *str)
+char	*next_left_str(char *left)
 {
 	int		i;
 	int		j;
 	char	*next;
 
 	i = 0;
-	if (str == NULL)
+	if (left == NULL)
 		return (NULL);
-	if (!ft_strlen(&str[i]))
+	if (!ft_strlen(&left[i]))
 	{
-		free(str);
+		free(left);
 		return ("\0");
 	}
-	while (str[i] && str[i] != '\n')
+	while (left[i] && left[i] != '\n')
 		i++;
-	next = (char *)malloc(sizeof(char) * (ft_strlen(&str[i]) + 1));
+	next = (char *)malloc(sizeof(char) * (ft_strlen(&left[i]) + 1));
 	if (!next)
 		return (NULL);
-	if (!ft_strlen(&str[i]))
-	{
-		free(str);
-		return ("\0");
-	}
 	j = 0;
 	i++;
-	while (str[i])
-		next[j++] = str[i++];
-	if (str[i] == '\n')
+	while (left[i])
+		next[j++] = left[i++];
+	if (left[i] == '\n')
 		next[j++] = '\n';
 	next[j] = '\0';
-	free(str);
+	free(left);
 	return (next);
 }
