@@ -4,7 +4,7 @@
 
 int		main()
 {
-	int		fd;
+	/*int		fd;
 	int		rd;
 	char	buf[50];
 
@@ -25,5 +25,14 @@ int		main()
 	printf("%s\n", buf);
 	rd = read(fd, buf, 2);
 	buf[rd] = '\0';
-	printf("%s\n", buf);
+	printf("%s\n", buf);*/
+	char	*str = "Hello";
+	int		i = 0;
+
+	while (str[i] != 'l')
+	{
+		i++;
+	}
+	printf("%ld\n",ft_strlen(&str[i]));
+	printf("%ld\n",ft_strlen(str) - i);
 }

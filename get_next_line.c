@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:06:02 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/22 20:46:31 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/23 15:42:21 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*get_next_line(int fd)
 	int		rd;
 	char		*buf;
 
-	if (fd < 0 || BUFFER_SIZE < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
@@ -48,37 +48,25 @@ char	*get_next_line(int fd)
 	left_str = next_left_str(left_str);
 	return (line);
 }
-
-/*#include <stdio.h>
+/*
+#include <stdio.h>
 #include <fcntl.h>
 
 int	main()
 {
 	int	fd;
 	char	*line;
-//	int	fd2;
-//	int	fd3;
 	int	i;
 
-	fd = open("test1", O_RDONLY);
-	//fd2 = open("test/test2.txt", O_RDONLY);
-	//fd3 = open("test/test3.txt", O_RDONLY);
+	fd = open("alternate_line_nl_no_nl", O_RDONLY);
 	i = 1;
-	while (i <= 7)
+	while (i <= 10)
 	{
 		line = get_next_line(fd);
 		printf("line [%02d] : %s", i, line);
 		free(line);
-		//line = get_next_line(fd2);
-		//printf("line [%02d] : %s", i, line);
-		//free(line);
-		//line = get_next_line(fd3);
-		//printf("line [%02d] : %s", i, line);
-		//free(line);
 		i++;
 	}
 	close(fd);
-	//close(fd2);
-	//close(fd3);
 	return (0);
 }*/
