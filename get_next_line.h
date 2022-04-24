@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:07:18 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/23 15:36:24 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/24 20:03:33 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/uio.h>
-#define BUFFER_SIZE 42
+#define BUFFER_SIZE 1
 
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char *s2);

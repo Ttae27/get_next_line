@@ -26,13 +26,13 @@ int		main()
 	rd = read(fd, buf, 2);
 	buf[rd] = '\0';
 	printf("%s\n", buf);*/
-	char	*str = "Hello";
-	int		i = 0;
+	int		fd;
+	int		rd;
+	char	buf[1024];
 
-	while (str[i] != 'l')
-	{
-		i++;
-	}
-	printf("%ld\n",ft_strlen(&str[i]));
-	printf("%ld\n",ft_strlen(str) - i);
+	fd = open("empty", O_RDONLY);
+	printf("%d\n",fd);
+	rd = read(fd, buf, 5);
+	printf("%d\n",rd);
+	close(fd);
 }

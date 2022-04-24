@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 10:06:51 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/23 15:41:41 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/24 20:56:30 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	check_space(char *left)
 	i = 0;
 	while (left[i] != '\0')
 	{
-		if (left[i] == 10)
+		if (left[i] == '\n')
 			return (1);
 		i++;
 	}
@@ -68,7 +68,7 @@ char	*get_line(char *str)
 	int		i;
 
 	i = 0;
-	if (!str[i])
+	if (str[i] == '\0')
 		return (NULL);
 	while (str[i] && str[i] != '\n')
 		i++;
@@ -97,13 +97,11 @@ char	*next_left_str(char *left)
 	char	*next;
 
 	i = 0;
-	if (left == NULL)
-		return (NULL);
-	if (left[0] == '\0')
-	{
-		free(left);
-		return ("\0");
-	}
+	// if (left[0] == '\0')
+	// {
+	// 	free(left);
+	// 	return ("\0");
+	// }
 	while (left[i] && left[i] != '\n')
 		i++;
 	next = (char *)malloc(sizeof(char) * (ft_strlen(&left[i]) + 1));
