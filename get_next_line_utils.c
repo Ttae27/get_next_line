@@ -6,13 +6,13 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:18:04 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/27 21:23:59 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/27 21:30:07 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
-int		ft_strlen(char *str)
+
+int	ft_strlen(char *str)
 {
 	int		i;
 
@@ -66,7 +66,7 @@ char	*get_line(char *left)
 	i = 0;
 	while (left[i] != '\n' && left[i] != '\0')
 	{
-	 	line[i] = left[i];
+		line[i] = left[i];
 		i++;
 	}
 	if (left[i] == '\n')
@@ -75,10 +75,8 @@ char	*get_line(char *left)
 	return (line);
 }
 
-char	*next_left(char *left)
+char	*next_left(char *left, int i, int j)
 {
-	int		i;
-	int		j;
 	char	*next;
 
 	if (left[0] == '\0')
@@ -86,8 +84,6 @@ char	*next_left(char *left)
 		free(left);
 		return (NULL);
 	}
-	i = 0;
-	j = 0;
 	while (left[i] != '\n' && left[i] != '\0')
 		i++;
 	next = malloc(sizeof(char) * ft_strlen(&left[i]) + 1);

@@ -6,13 +6,13 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:18:00 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/27 21:24:15 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/27 21:30:18 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
-int		check_nl(char *str)
+
+int	check_nl(char *str)
 {
 	int	i;
 
@@ -63,6 +63,6 @@ char	*get_next_line(int fd)
 	if (!left)
 		return (NULL);
 	line = get_line(left);
-	left = next_left(left);
+	left = next_left(left, 0, 0);
 	return (line);
 }
