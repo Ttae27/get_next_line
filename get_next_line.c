@@ -5,28 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/10 10:06:02 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/24 21:02:13 by phongpai         ###   ########.fr       */
+/*   Created: 2022/04/25 22:18:00 by phongpai          #+#    #+#             */
+/*   Updated: 2022/04/27 21:24:15 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdio.h>
-char	*get_next_line(int fd)
+int		check_nl(char *str)
 {
-	char		*line;
-	static char	*left_str;
-	int		rd;
-	char		*buf;
+	int	i;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+	if (!str)
+		return (0);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == '\n')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+char	*read_bufsize(int fd, char *left)
+{
+	int		rd;
+	char	*buf;
+
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
 		return (NULL);
 	rd = 1;
-	printf("1st left_str = %s\n",left_str);
-	while (rd != 0)
+	while (rd != 0 && check_nl(left) == 0)
 	{
 		rd = read(fd, buf, BUFFER_SIZE);
 		if (rd < 0)
@@ -35,40 +46,23 @@ char	*get_next_line(int fd)
 			return (NULL);
 		}
 		buf[rd] = '\0';
-		// if (buf[0] == '\0')
-		// 	break;
-	//	printf("rd = %d",rd);
-		left_str = ft_strjoin(left_str, buf);
-	//	printf(" : left = %s\n", left_str);
-	//	printf("check_space = %d\n",check_space(left_str));
-		if (check_space(left_str) == 1 || rd < BUFFER_SIZE)
-			break;
+		left = ft_strjoin(left, buf);
 	}
 	free(buf);
-	line = get_line(left_str);
-	left_str = next_left_str(left_str);
-	return (line);
+	return (left);
 }
 
-/*#include <stdio.h>
-#include <fcntl.h>
-
-int	main()
+char	*get_next_line(int fd)
 {
-	int	fd;
-	char	*line;
-	int	i;
+	char		*line;
+	static char	*left;
 
-	fd = open("test1", O_RDONLY);
-	//printf("%d",fd);
-	i = 1;
-	while (i <= 10)
-	{
-		line = get_next_line(fd);
-		printf("line [%02d] : %s", i, line);
-		free(line);
-		i++;
-	}
-	close(fd);
-	return (0);
-}*/
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	left = read_bufsize(fd, left);
+	if (!left)
+		return (NULL);
+	line = get_line(left);
+	left = next_left(left);
+	return (line);
+}
