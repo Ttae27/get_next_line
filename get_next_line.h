@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:18:02 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/27 21:31:20 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/27 21:34:50 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# define BUFFER_SIZE 1
 
 int		ft_strlen(char *str);
 char	*ft_strjoin(char *left, char *buf);
