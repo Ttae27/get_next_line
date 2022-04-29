@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:18:04 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/27 21:30:07 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/29 20:08:10 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*get_line(char *left)
 	int		i;
 	char	*line;
 
-	if (left[0] == '\0')
+	if (left[0] == '\0' || left == NULL)
 		return (NULL);
 	i = 0;
 	while (left[i] != '\n' && left[i] != '\0')
