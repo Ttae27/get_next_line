@@ -6,16 +6,15 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 16:19:38 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/28 16:29:45 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/04/29 22:17:28 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <unistd.h>
 # include <stdlib.h>
-# define BUFFER_SIZE 1
 
 int		ft_strlen(char *str);
 char	*ft_strjoin(char *left, char *buf);
