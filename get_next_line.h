@@ -6,7 +6,7 @@
 /*   By: phongpai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 22:18:02 by phongpai          #+#    #+#             */
-/*   Updated: 2022/04/29 20:10:33 by phongpai         ###   ########.fr       */
+/*   Updated: 2022/05/29 17:04:57 by phongpai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
- 
+
 int		ft_strlen(char *str);
 char	*ft_strjoin(char *left, char *buf);
 char	*read_bufsize(int fd, char *left);
